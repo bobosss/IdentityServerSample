@@ -278,7 +278,7 @@ namespace IdentityServerSample.IdentityServer.Controllers
             if (vm.ShowLogoutPrompt == false)
             {
                 // no need to show prompt
-                return await Logout(vm);
+                return await Logout2(vm);
             }
 
             return View(vm);
@@ -289,7 +289,7 @@ namespace IdentityServerSample.IdentityServer.Controllers
         /// </summary>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Logout(LogoutInputModel model)
+        public async Task<IActionResult> Logout2(LogoutInputModel model)
         {
             var vm = await _account.BuildLoggedOutViewModelAsync(model.LogoutId);
             if (vm.TriggerExternalSignout)

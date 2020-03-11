@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <UserSecretsId>aspnet-IdentityServerSample.IdentityServer-D6B45201-1936-4955-86A2-17318C5D8A8D</UserSecretsId>
+    <Configurations>Debug;Release;Production</Configurations>
   </PropertyGroup>
 
 
@@ -22,7 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Auditor.Security\Auditor.Security.csproj" />
-    <ProjectReference Include="..\IdentityServerSample.Data\IdentityServerSample.Data.csproj" />
+    <ProjectReference Include="..\IdentityServerSample.Data\Auditor.Data.csproj" />
     <ProjectReference Include="..\IdentityServerSample.Domain\IdentityServerSample.Domain.csproj" />
   </ItemGroup>
 

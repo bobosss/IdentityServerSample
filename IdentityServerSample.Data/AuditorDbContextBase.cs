@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.Composition;
-using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
@@ -11,6 +10,7 @@ using Allweb.Core.Common.Contracts;
 using Allweb.Core.Common.Core;
 using System.Data.Entity.Validation;
 using Auditor.Data.Management;
+using Microsoft.EntityFrameworkCore;
 
 namespace Auditor.Data
 {
@@ -26,7 +26,10 @@ namespace Auditor.Data
 
             //if (_loggerService != null)
             //    Database.Log = s => _loggerService.Debug(s, null);
-            Database.Log = null;
+        }
+        public AuditorDbContextBase(DbContextOptions<AuditorDbContextBase> options)
+            : base(options)
+        {
         }
 
         public AuditorDbContextBase(string connectionName) : base(connectionName)

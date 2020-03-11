@@ -1,6 +1,7 @@
-﻿using System.Data.Entity.ModelConfiguration;
-using Auditor.Business.Models;
+﻿using Auditor.Business.Models;
 using Auditor.Common;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Auditor.Data.Management.Configurations
 {
@@ -10,9 +11,9 @@ namespace Auditor.Data.Management.Configurations
     /// </summary>
     public class ConstructorEntityConfiguration : IEntityTypeConfiguration<Constructor>
     {
-        public ConstructorEntityConfiguration()
+        public void Configure(EntityTypeBuilder<Constructor> builder)
         {
-            HasKey(p => p.Id);
+            builder.HasKey(p => p.Id);
 
             builder.Property(p => p.ConstructorsName)
                 .HasMaxLength(DataAnnotationConstants.TitleLength);

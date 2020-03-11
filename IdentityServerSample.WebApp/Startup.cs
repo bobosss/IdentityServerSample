@@ -26,7 +26,6 @@ namespace IdentityServerSample.WebApp
                 options.Filters.Add(new RequireHttpsAttribute());
             });
 
-
             //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             services.AddAuthentication(options =>

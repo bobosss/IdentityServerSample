@@ -1,4 +1,5 @@
-﻿using IdentityServerSample.Domain;
+﻿using Auditor.Data.Management.Configurations;
+using IdentityServerSample.Domain;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -15,9 +16,8 @@ namespace IdentityServerSample.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfigurationsFromAssembly(typeof(UserConfiguration).Assembly);
+            builder.ApplyConfigurationsFromAssembly(typeof(CityEntityConfiguration).Assembly);
             base.OnModelCreating(builder);
-
         }
 
         public DbSet<Book> Books { get; set; }

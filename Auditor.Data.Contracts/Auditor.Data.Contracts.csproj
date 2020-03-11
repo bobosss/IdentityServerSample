@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Contracts\Allweb.Core.Common.Contracts.csproj" />
+    <ProjectReference Include="..\IdentityServerSample.Domain\IdentityServerSample.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

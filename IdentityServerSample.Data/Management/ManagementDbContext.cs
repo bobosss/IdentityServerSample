@@ -1,6 +1,6 @@
-﻿using System.Data.Entity;
-using Auditor.Business.Models;
+﻿using Auditor.Business.Models;
 using Auditor.Data.Management.Configurations;
+using Microsoft.EntityFrameworkCore;
 
 namespace Auditor.Data.Management
 {
@@ -100,41 +100,6 @@ namespace Auditor.Data.Management
         public DbSet<Organization> OrganizationSet { get; set; }
 
         /// <summary>
-        /// Statement Set
-        /// </summary>
-        public DbSet<Statement> StatementSet { get; set; }
-
-        /// <summary>
-        /// Adapter Set
-        /// </summary>
-        public DbSet<Adapter> AdapterSet { get; set; }
-
-        /// <summary>
-        /// Extension Set
-        /// </summary>
-        public DbSet<Extension> ExtensionSet { get; set; }
-
-        /// <summary>
-        /// FixedConnector Set
-        /// </summary>
-        public DbSet<FixedConnector> FixedConnectorSet { get; set; }
-
-        /// <summary>
-        /// Multiprice Set
-        /// </summary>
-        public DbSet<Multiprice> MultipriceSet { get; set; }
-
-        /// <summary>
-        /// PortableConnector Set
-        /// </summary>
-        public DbSet<PortableConnector> PortableConnectorSet { get; set; }
-
-        /// <summary>
-        /// PortablePlug Set
-        /// </summary>
-        public DbSet<PortablePlug> PortablePlugSet { get; set; }
-
-        /// <summary>
         /// Constructor Set
         /// </summary>
         public DbSet<Constructor> ConstructorSet { get; set; }
@@ -171,65 +136,22 @@ namespace Auditor.Data.Management
         /// Entity Framework DbContext, entities configuration with Fluent API
         /// </summary>
         /// <param name="modelBuilder"></param>
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder builder)
+
         {
             #region Draft Entities Configurations
 
-            modelBuilder.Configurations
-                .Add(new PersonEntityConfiguration())
-                .Add(new PersonAddressEntityConfiguration())
-                .Add(new PersonPhoneNumberEntityConfiguration())
-                .Add(new PersonEmailEntityConfiguration())
-                .Add(new PhoneNumberEntityConfiguration())
-                .Add(new WebsiteEntityConfiguration())
-                .Add(new LookupEntityConfiguration())
-                .Add(new LookupTypeEntityConfiguration())
-                .Add(new CountryEntityConfiguration())
-                .Add(new CityEntityConfiguration())
-                .Add(new MaintenanceEntityConfiguration())
-                .Add(new ConfigEntityConfiguration())
-                .Add(new OrganizationEntityConfiguration())
-                .Add(new StatementEntityConfiguration())
-                .Add(new AdapterEntityConfiguration())
-                .Add(new ExtensionEntityConfiguration())
-                .Add(new FixedConnectorEntityConfiguration())
-                .Add(new MultipriceEntityConfiguration())
-                .Add(new PortableConnectorEntityConfiguration())
-                .Add(new PortablePlugEntityConfiguration())
-                .Add(new ConstructorEntityConfiguration())
-                .Add(new IssueEntityConfiguration())
-                .Add(new IssueFilesEntityConfiguration())
-                .Add(new IdPoolEntityConfiguration())
-                .Add(new FileDataEntityConfiguration())
-                .Add(new InformationDocumentEntityConfiguration());
+            builder.ApplyConfigurationsFromAssembly(typeof(CityEntityConfiguration).Assembly);
+            base.OnModelCreating(builder);
 
             #endregion
 
-
-            base.OnModelCreating(modelBuilder);
         }
 
         #endregion
 
         #region SaveChanges Overrides
 
-        //public override int SaveChanges()
-        //{
-        //    int result = base.SaveChanges();
-        //    return result;
-        //}
-
-        //public override Task<int> SaveChangesAsync()
-        //{
-        //    var result = base.SaveChangesAsync();
-        //    return result;
-        //}
-
-        //public override Task<int> SaveChangesAsync(CancellationToken cancellationToken)
-        //{
-        //    var result = base.SaveChangesAsync(cancellationToken);
-        //    return result;
-        //}
 
         #endregion
     }

@@ -1,4 +1,5 @@
-﻿using IdentityServer4.Quickstart.UI;
+﻿using Auditor.Security.Common.Models;
+using IdentityServer4.Quickstart.UI;
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
 using IdentityServerSample.Domain;

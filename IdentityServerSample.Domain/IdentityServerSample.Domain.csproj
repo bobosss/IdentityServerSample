@@ -9,4 +9,10 @@
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="2.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Auditor.Security.Common\Auditor.Security.Common.csproj" />
+    <ProjectReference Include="..\Core.Contracts\Allweb.Core.Common.Contracts.csproj" />
+    <ProjectReference Include="..\Core\Allweb.Core.Common.csproj" />
+  </ItemGroup>
+
 </Project>
